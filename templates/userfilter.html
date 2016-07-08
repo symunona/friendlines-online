@@ -1,0 +1,19 @@
+<div>
+    <input class='userFilter' data-bind="value: userFilter, valueUpdate: 'input'" placeholder="user filter">
+</div>
+<div class="flipper">
+    <a data-bind='click: selectAll.bind(this,false)'>None</a>
+    <a data-bind='click: selectAll.bind(this,true)'>All</a>
+    <a data-bind='click: invert'>Invert</a>
+</div>
+<div data-bind="foreach: actualRenderableUserListArray()" class="content">
+    <p>
+        <span data-bind="style: {
+                'background-color': $parent.isIn(id)?$parent.user.color(id):'#aaa', 
+                color:$parent.isIn(id)?'black':'#d1d1d1'}">
+                        <span data-bind="text: userName"></span>
+        <input type="checkbox" data-bind="
+                checked: $parent.userToRenderMap[id] ">
+        </span>
+    </p>
+</div>

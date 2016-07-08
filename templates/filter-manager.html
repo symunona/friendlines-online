@@ -1,0 +1,13 @@
+<header id="filter" data-bind="visible: filterVisible()">
+
+    <div id='filterloader' data-bind="with: actualFilter()">
+        Filters
+        <button id="duplicateFilter" data-bind="click: $root.duplicateFilter">Make new from this</button>
+        <!--<button id="savebutton" onclick="saveFilter()">Save</button>-->
+        <input type="text" data-bind="value: name, enable: editable">
+        <select id="filters" data-bind="options: $root.filters, optionsText: 'name', value: $root.actualFilter, valueAllowUnset: true"></select>
+        <button id="deletebutton" data-bind="click: $root.deleteFilter, enable: editable">X</button>
+        <button id="resetBtn" data-bind="click: $root.reset">Reset</button>
+
+    </div>
+</header>

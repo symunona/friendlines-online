@@ -1,0 +1,27 @@
+<form data-bind="with: actual">
+    <table>
+        <tr>
+            <td>Filter</td>
+            <td title="Filter people who does not have at least this many messages sent to each other" class="info">
+                Min sum count <i class="i">i</i></td>
+            <td title="Filter people who does not have at least this amount of characters sent to each other" class="info">
+                Min sum length <i class="i">i</i></td>
+            <td title="Filter people who does not have at least this many months in a role where you exchanged messages" class="info">
+                At least this many active month <i class="i">i</i></td>
+            <!--<td title="Use this number, to drop months below a number of messages, so they count as inactive" class="info">minimum month message</td>-->
+            <td>order by 1</td>
+            <td>Descending</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input id="minsumcount" type="number" data-bind="value: min.count.extend({ numeric: 0 }), enable: editable"></td>
+            <td><input id="minsumlength" type="number" data-bind="value: min.length.extend({ numeric: 0 }), enable: editable"></td>
+            <td><input id="minactivefollowinmonth" type="number" data-bind="value: minActiveMonthCount.extend({ numeric: 0 }), enable: editable"></td>
+            <!--<td><input id="minmonthcount" type="number" data-bind="value: minMonth.count, enable: editable"></td>-->
+            <td>
+                <select id="orderby1" data-bind="options: $parent.consts.orderBys, optionsText: 'name', optionsValue: 'val', value: orderBy, enable: editable"></select>
+            </td>
+            <td><input type="checkbox" id="descendingOrderBy" data-bind="checked: descendingOrderBy, enable: editable"></td>
+        </tr>
+    </table>
+</form>

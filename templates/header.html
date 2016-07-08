@@ -1,0 +1,51 @@
+<header id="primary-header">
+    <nav id="primary-navigation">
+
+
+        <div class='tmp right'><a href="http://theminimalproject.dyndns.hu" target="_blank">™P</a></div>
+        <div class="share right">
+            <a data-bind='click: share.share'>Share <i class="fa fa-share-alt"></i></a>
+        </div>
+
+        <div class="search right">
+            <a class="search-status" data-bind="text: search.status(), click: search.openSearchResult"></a>
+            <input type="text" class="search-input" data-bind='event:{keydown:  search.searchKeyDown}' placeholder="search...">
+        </div>
+
+
+        <ul id='statlist'>
+            <!--<li><img src='assets/logo.png' class="headericon"></li>-->
+            <li class="menu">
+                <a data-bind='click: ui.visible.menu.bind(this,!ui.visible.menu())' class='menu'>☰</a>
+                <div data-bind='visible: ui.visible.menu()' class='menulist'>
+                    <div data-bind="click: function(){ openNew(); ui.visible.menu(false)}">Open new ZIP</div>
+                    <div data-bind="click: function(){ ui.visible.menu(false)}">Export image</div>
+                    <!--<div>Share</div>-->
+                    <div class="noclick">
+                        <hr>
+                    </div>
+                    <div class="noclick">Recently opened:</div>
+                    <!-- ko foreach: lastOpenedList() -->
+                    <div data-bind="text: $data, click: function(){$root.ui.visible.menu(false);$root.loadFromCache($data); }"></div>
+                    <!-- /ko -->
+                    <!--<div></div>-->
+                </div>
+            </li>
+            <li class="username" data-bind="text: user.userName()"></li>
+            <!-- ko foreach: processors-->
+            <li>
+                <a data-bind="  attr: {'data-index': $index}, 
+                                    text: name, 
+                                    click: function(){
+                                        if ($root.actualProcessor()?$root.actualProcessor().name != name:false)
+                                            $root.switchProcessor($data);
+                                    }, 
+                                    css:{active: $root.actualProcessor()?$root.actualProcessor().name == name:false}"></a>
+            </li>
+            <!-- /ko -->
+            <!--<li>FriendLines 0.1</li>-->
+        </ul>
+
+    </nav>
+
+</header>

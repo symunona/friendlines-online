@@ -1,0 +1,72 @@
+<div style="overflow: auto; height: 480px;">
+
+    <h1 data-bind="text: stat.userName, style: {'background-color': userColor}"></h1>
+    <div>
+        <p>First message: <span data-bind="text: stat.firstMessageDate"></span></p>
+        <p>Last message: <span data-bind="text: stat.lastMessageDate"></span></p>
+    </div>
+    <table class="sumdata selectable">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Inbound</th>
+
+                <th>Outbound</th>
+
+                <th>Sum</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!--ko foreach: Object.keys(emotions)-->
+            <tr data-bind="attr:{title: $root.emotions[$data]}">
+                <td data-bind="text: $data"></td>
+                <td data-bind="text: $root.stat.inbound[$data] || 0"></td>
+                <td data-bind="text: $root.stat.outbound[$data] || 0"></td>
+                <td data-bind="text: $root.stat.sums[$data] || 0"></td>
+            </tr>
+            <!--/ko-->
+            <tr>
+                <td>count</td>
+                <td data-bind="text: $root.stat.inbound.count"></td>
+                <td data-bind="text: $root.stat.outbound.count"></td>
+                <td data-bind="text: $root.stat.sums.count"></td>
+            </tr>
+            <tr>
+                <td>length</td>
+                <td data-bind="text: $root.stat.inbound.length"></td>
+                <td data-bind="text: $root.stat.outbound.length"></td>
+                <td data-bind="text: $root.stat.sums.length"></td>
+            </tr>
+            <tr>
+                <td>avg msg len</td>
+                <td data-bind="text: Math.round($root.stat.inbound.length/$root.stat.inbound.count)"></td>
+                <td data-bind="text: Math.round($root.stat.outbound.length/$root.stat.outbound.count)"></td>
+                <td data-bind="text: Math.round($root.stat.sums.length/$root.stat.sums.count)"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a data-bind='click: openWordCloud' class="clickable">Open word cloud</a>
+    <!--<pre data-bind="text: JSON.stringify(stat, null, 2)"></pre>-->
+
+    <div class="search-results">
+        <div data-bind="foreach: messages">
+            <div class="message-header">
+                <span data-bind="text: fromUserName, 
+                    style: {'background-color': $root.colors[fromUserId] || '#eee'},
+                    "></span> &rarr;
+                <span data-bind="text: toUserName,
+                    style: {'background-color': $root.colors[toUserId] || '#eee'},
+                <span data-bind=" text: sendDate "></span>
+            </div>
+            <div class="message " data-bind="highlight: { text: message, highlight: $root.keyword } "></div>
+            <div data-bind="if: !$parent.threadId, click: $root.openThread.bind($root, $data) " class="clickable ">
+                Open thread: <span data-bind="text: threadId "></span>
+            </div>
+        </div>
+    </div>
+
+
+    <!--<pre data-bind="text: JSON.stringify(emotions, null, 2) "></pre>-->
+
+</div>

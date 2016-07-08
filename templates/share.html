@@ -1,0 +1,34 @@
+<div id="share" data-bind="with: uploadModel()">
+    <div class="loading" data-bind="visible: $root.ui.loading()"></div>
+    <div id="contribute">
+        <button class="closebutton" data-bind="click: $root.ui.visible.share.bind(this,false)">X</button>
+        <h2>Share</h2>
+        <p>&nbsp;</p>
+        <input id='nameinput' type="text" data-bind="value: name" placeholder="name of your image">
+        <p>Please position the image where you want it to be (mousescroll and drag)</p>
+        <div id="uploadpreview"></div>
+
+        <p>Comment:</p>
+        <textarea data-bind="value: comment" placeholder="What are we seeing?"></textarea>
+
+        <p>Want to contribute to <a href="http://friendlines.dyndns.hu/galery" target="_blank">my galery</a>?
+            <input type="checkbox" data-bind="checked: public">
+        </p>
+        <p><i>Note: We store no personal data of you by any means. Your contribution is completely anonymous.</i></p>
+
+        <p><i title="this is helping me 
+            determine the best default settings for the filter">Note:
+            Things what you upload with hitting ok: this SVG, 
+            and your filter settings.</i></p>
+        <p>Once you shared it, you will get a link to send and a facebook share button!</p>
+
+        <textarea rows="1" cols="50" onclick="this.focus();this.select()" readonly="readonly" data-bind="value: $root.link" placeholder="url will appear here"></textarea>
+
+        <a data-bind='click: $parent.openShared.bind($root)' class="fa fa-share-square-o"></a>
+
+        <div class="center">
+            <button data-bind="click: $parent.upload.bind($root), visible: !$root.link()" class="sharebuttonform">Share</button>
+            <button data-bind="click: $parent.upload.bind($root), visible: $root.link()" class="newshare">Create new share</button>
+        </div>
+    </div>
+</div>
