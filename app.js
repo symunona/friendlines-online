@@ -2,7 +2,6 @@ requirejs.config({
     baseUrl: '',
     paths: {
         knockout: 'node_modules/knockout/build/output/knockout-latest.debug',
-        ko: 'knockout',
         wrap: 'lib/utils/knockout.wrap',
         jQuery: 'node_modules/jquery/dist/jquery.min',
         text: 'node_modules/requirejs-text/text',

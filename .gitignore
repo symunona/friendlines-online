@@ -14,4 +14,5 @@ stats.json
 statlist.json
 temp/*
 .vscode/
+lib/vendor/zip.js/WebContent/tests
 
