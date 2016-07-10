@@ -1,39 +1,40 @@
 {
-    "name": "friendlines-online",
-    "version": "0.0.3",
-    "description": "The browser ran friendlines",
-    "main": "app.js",
-    "scripts": {},
-    "keywords": [
-        "facebook",
-        "history",
-        "visualisation"
-    ],
-    "author": "Bendeguy",
-    "license": "ISC",
-    "dependencies": {
-        "d3": "^3.5.17",
-        "font-awesome": "^4.6.3",
-        "jquery": "^3.0.0",
-        "jquery-highlight": "^3.3.0",
-        "jszip": "^3.0.0",
-        "knockout": "^3.4.0",
-        "less": "^2.7.1",
-        "moment": "^2.13.0",
-        "q": "^1.4.1",
-        "requirejs": "^2.2.0",
-        "requirejs-plugins": "^1.0.2",
-        "requirejs-text": "^2.0.12",
-        "svg-pan-zoom": "^3.2.9",
-        "underscore": "^1.8.3"
-    },
-    "devDependencies": {},
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/symunona/friendlines-online.git"
-    },
-    "bugs": {
-        "url": "https://github.com/symunona/friendlines-online/issues"
-    },
-    "homepage": "https://github.com/symunona/friendlines-online#readme"
+  "name": "friendlines-online",
+  "version": "0.0.3",
+  "description": "The browser ran friendlines",
+  "main": "app.js",
+  "scripts": {},
+  "keywords": [
+    "facebook",
+    "history",
+    "visualisation"
+  ],
+  "author": "Bendeguy",
+  "license": "ISC",
+  "dependencies": {
+    "d3": "^3.5.17",
+    "font-awesome": "^4.6.3",
+    "jquery": "^3.0.0",
+    "jquery-highlight": "^3.3.0",
+    "jszip": "^3.0.0",
+    "knockout": "^3.4.0",
+    "less": "^2.7.1",
+    "moment": "^2.13.0",
+    "moment-parseformat": "^2.1.1",
+    "q": "^1.4.1",
+    "requirejs": "^2.2.0",
+    "requirejs-plugins": "^1.0.2",
+    "requirejs-text": "^2.0.12",
+    "svg-pan-zoom": "^3.2.9",
+    "underscore": "^1.8.3"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/symunona/friendlines-online.git"
+  },
+  "bugs": {
+    "url": "https://github.com/symunona/friendlines-online/issues"
+  },
+  "homepage": "https://github.com/symunona/friendlines-online#readme"
 }
