@@ -107,6 +107,7 @@ define([
             ui.loading(true);
             ui.status('Drawing...');
             var startDate = new Date();
+            ui.stack();
             setTimeout(function() {
                 var drawing = app.actualProcessor()
                     .draw.draw('#timeline', filter.usersToRender(), params, filter, user.metaData(), app);
