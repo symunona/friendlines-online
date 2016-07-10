@@ -10,7 +10,10 @@ requirejs.config({
         storage: 'lib/utils/storage',
         _: 'node_modules/underscore/underscore-min',
         d3: 'node_modules/d3/d3',
-        moment: 'node_modules/moment/min/moment.min'
+        moment: 'node_modules/moment/min/moment.min',
+        jszip: 'node_modules/jszip/dist/jszip',
+        q: 'node_modules/q/q',
+        'requirejs-web-workers': 'node_modules/requirejs-web-workers/src/worker'
     }
 });
 
