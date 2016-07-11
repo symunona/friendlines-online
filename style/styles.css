@@ -110,7 +110,7 @@ header #resetBtn {
   line-height: 2em;
 }
 .nouser p {
-  padding-top: 40%;
+  padding-top: 15%;
 }
 .loading {
   background-image: url('loading.gif');
