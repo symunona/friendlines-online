@@ -13,7 +13,8 @@ requirejs.config({
         moment: 'node_modules/moment/min/moment.min',
         jszip: 'node_modules/jszip/dist/jszip',
         q: 'node_modules/q/q',
-        'requirejs-web-workers': 'node_modules/requirejs-web-workers/src/worker'
+        d3cloud: 'lib/utils/d3.layout.cloud'
+
     }
 });
 
@@ -35,7 +36,8 @@ define([
     'lib/utils/popup',
     'lib/stat',
     'lib/search',
-    'moment'
+    'moment',
+    'd3'
 
 
 
@@ -85,6 +87,14 @@ define([
         openNew: function() {
             user.userName('');
         },
+        downloadMessagesJson: function() {
+            downloadFile(user.userName() + '.json', JSON.stringify(user.messages()));
+        },
+        saveSVG: function() {
+            var svg = $('#timeline')[0].innerHTML;
+            svg = '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" ' + svg.substr(4);
+            downloadFile(user.userName() + '.svg', svg);
+        },
 
         preRender: function() {
 
@@ -100,9 +110,9 @@ define([
 
         },
         render: function() {
-            // TODO: Check if this filter's SVG is already cached
-            // generate param, filter, userlist and processorId hash
+
             var params = app.actualProcessor().params;
+
             /* Render everything*/
             ui.loading(true);
             ui.status('Drawing...');
@@ -118,9 +128,6 @@ define([
             }, 0);
 
         },
-        test: function() {
-
-        },
         switchProcessor: function(processor) {
             app.actualProcessor(processor);
             app.render();
@@ -128,7 +135,6 @@ define([
         },
 
         actualProcessor: ko.observable(),
-
 
     };
 
@@ -147,6 +153,18 @@ define([
         doit = setTimeout(resizedw, 100);
     };
 
+    function downloadFile(filename, text, type) {
+        var element = document.createElement('a');
+        element.setAttribute('href', type || 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+        element.setAttribute('download', filename);
+
+        element.style.display = 'none';
+        document.body.appendChild(element);
+
+        element.click();
+
+        document.body.removeChild(element);
+    }
 
     /* Loads the last processor and drawer */
     var lastProcessor = storage.load(LAST_PROCESSOR);

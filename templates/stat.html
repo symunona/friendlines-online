@@ -46,10 +46,17 @@
         </tbody>
     </table>
 
-    <a data-bind='click: openWordCloud' class="clickable">Open word cloud</a>
-    <!--<pre data-bind="text: JSON.stringify(stat, null, 2)"></pre>-->
+    <p>
+        <a data-bind='click: openWordCloud' class="clickable">Open word cloud</a>
+    </p>
 
-    <div class="search-results">
+    <p>
+        <a data-bind="if: !loadMessages(), click: loadMessages.bind($root,true)" class="clickable">
+            Load messages
+        </a>
+    </p>
+
+    <div class="search-results" data-bind="if: loadMessages()">
         <div data-bind="foreach: messages">
             <div class="message-header">
                 <span data-bind="text: fromUserName, 
@@ -65,8 +72,5 @@
             </div>
         </div>
     </div>
-
-
-    <!--<pre data-bind="text: JSON.stringify(emotions, null, 2) "></pre>-->
 
 </div>

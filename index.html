@@ -58,7 +58,7 @@
 
         </div>
         <div class="nouser" data-bind="visible: !user.userName() && !ui.loading()" style="display: none;">
-            <p>No facebook history zip loaded. </p>
+            <p>&nbsp;</p>
             <div>Please select a language and then browse a file!</div>
             <div data-bind="text: ui.status"></div>
             <select data-bind="options: convert.languages, optionsText: 'name', optionsValue: 'key', optionsCaption: 'New language', value: convert.languageFromTheList">

@@ -7,13 +7,15 @@
     <a data-bind='click: invert'>Invert</a>
 </div>
 <div data-bind="foreach: actualRenderableUserListArray()" class="content">
-    <p>
+    <p data-bind="click: $parent.userToRenderMap[id].bind(this, !$parent.userToRenderMap[id]())">
+
         <span data-bind="style: {
                 'background-color': $parent.isIn(id)?$parent.user.color(id):'#aaa', 
-                color:$parent.isIn(id)?'black':'#d1d1d1'}">
+                color:$parent.isIn(id)?'black':'#d1d1d1'}                
+                ">
+                <input type="checkbox" data-bind="
+                    checked: $parent.userToRenderMap[id] ">
                         <span data-bind="text: userName"></span>
-        <input type="checkbox" data-bind="
-                checked: $parent.userToRenderMap[id] ">
         </span>
     </p>
 </div>

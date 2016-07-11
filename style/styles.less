@@ -15,6 +15,10 @@ body{
     -moz-user-select: -moz-none;
     -ms-user-select: none;
     user-select: none;
+    p{
+        line-height: 15px;
+    }
+    
 }
 
 .flipper{
@@ -44,6 +48,10 @@ header{
         }
     }
     .filtertoggler, .searchtoggler, .userstoggler{ float: right; }
+    .filtertoggler{
+        font-size: 20px;
+        line-height: 20px;
+    }
 
     &#search{
         height: 40px; line-height: 40px;
@@ -208,6 +216,9 @@ svg{
     
     rect.mainrect {
         fill: #fff;
+    }
+    text.word:hover{
+        fill: #3b5998 !important;
     }
 
     .search-result{

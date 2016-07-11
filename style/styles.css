@@ -8,6 +8,9 @@ body {
   -ms-user-select: none;
   user-select: none;
 }
+body p {
+  line-height: 15px;
+}
 .flipper {
   cursor: pointer;
 }
@@ -44,6 +47,10 @@ header .filtertoggler,
 header .searchtoggler,
 header .userstoggler {
   float: right;
+}
+header .filtertoggler {
+  font-size: 20px;
+  line-height: 20px;
 }
 header#search {
   height: 40px;
@@ -263,6 +270,9 @@ svg {
 }
 svg rect.mainrect {
   fill: #fff;
+}
+svg text.word:hover {
+  fill: #3b5998 !important;
 }
 svg .search-result:hover {
   fill: yellow !important;
