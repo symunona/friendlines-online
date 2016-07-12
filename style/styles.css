@@ -523,6 +523,7 @@ p.alert {
 }
 #primary-header {
   color: white;
+  line-height: 18px;
 }
 #primary-header a {
   cursor: pointer;
